@@ -1,6 +1,6 @@
 [![Contentstack](https://www.contentstack.com/docs/static/images/contentstack.png)](https://www.contentstack.com/)
 
-# Build an example app using Contentstack GraphQL API and .Net GraphQLClient
+# Build an example app using Contentstack GraphQL API and .Net GraphQL Client
 
 ## About Contentstack:
 
