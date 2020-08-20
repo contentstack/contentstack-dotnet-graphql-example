@@ -1,4 +1,4 @@
-[![Contentstack](https://www.contentstack.com/docs/static/images/contentstack.png)](https://www.content stack.com/)
+[![Contentstack](https://www.contentstack.com/docs/static/images/contentstack.png)](https://www.contentstack.com/)
 
 # Build an example app using Contentstack GraphQL API and .Net GraphQLClient
 
