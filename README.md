@@ -12,6 +12,8 @@ We have created a sample product catalog app that is built using [GraphQL Client
 
 This document covers the steps to get this app up and running. Try out the steps mentioned in the guide before building large scale applications.
 
+![Homepage Screenshot](./product-catelog-image.png?raw=true "Homepage screenshot")
+
 ## Perform the steps given below to get started.
 
  - To get your app up and running quickly, we have created a sample .Net Product catalog for this project. You need to download it and change the configuration. So download the app using the command given below:
@@ -34,7 +36,7 @@ $ git clone https://github.com/contentstack/contentstack-dotnet-graphql-example.
   ...
 }
 ```
-![Homepage Screenshot](./product-catelog-image.png?raw=true "Homepage screenshot")
+ - Now that we have a working project ready, you can build and run it.
 
 # Tutorial
 
