@@ -4,21 +4,20 @@
     ViewData["Title"] = "Home page";
 }
 
-
-
 @foreach (contentstack_dotnet_graphql_example.Models.Product product in Model.Products.all_product.items)
 {
-    <div class="col-md-4 col-sm-6 col-xs-12 women-dresses">
-        <div class="women-grids wp1 animated wow slideInUp product-item" data-wow-delay=".5s">
-            <a href={{ product.url }}>
+    <a asp-page="./Details" asp-route-productuid="@product.title">
+
+        <div class="col-md-4 col-sm-6 col-xs-12 women-dresses">
+            <div class="women-grids wp1 animated wow slideInUp product-item" data-wow-delay=".5s">
                 <div class="product-img">
-                    <img src="@product.featured_imageConnection.edges[0].node.url" alt="" />
+                    <img  class="image-product" src="@product.featured_imageConnection.edges[0].node.url" alt="" />
                 </div>
-            </a>
-            <h4>@product.title</h4>
-            <h5>@product.price</h5>
+                <h4>@product.title</h4>
+                <h5>@product.price</h5>
+            </div>
         </div>
-    </div>
+     </a>
 }
 
 

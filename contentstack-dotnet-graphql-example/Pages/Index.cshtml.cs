@@ -59,6 +59,7 @@ namespace contentstack_dotnet_graphql_example.Pages
             try
             {
                 var response = await _client.SendQueryAsync<ProductResponse>(query);
+                Console.WriteLine(response.Data);
                 Products = response.Data;
             }catch (Exception e)
             {

@@ -5,6 +5,7 @@ namespace contentstack_dotnet_graphql_example.Models
 {
     public class Product
     {
+        public string uid { get; set; }
         public string title { get; set; }
         public string description { get; set; }
         public double price { get; set; }
