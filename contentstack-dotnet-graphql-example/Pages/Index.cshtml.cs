@@ -16,7 +16,7 @@ namespace contentstack_dotnet_graphql_example.Pages
         private readonly GraphQLHttpClient _client;
 
         [BindProperty]
-        public ProductResponse Products { get; set; }
+        public AllProductResponse Products { get; set; }
 
         public int CurrentPage = 1;
         public IndexModel(ILogger<IndexModel> logger, GraphQLHttpClient client)
@@ -36,6 +36,9 @@ namespace contentstack_dotnet_graphql_example.Pages
                   all_product(locale:""en-us"", skip:$skip, limit:$limit) {
                     total
                     items{
+                      system {
+                         uid
+                      }
                       title
                       description
                       price
@@ -58,7 +61,7 @@ namespace contentstack_dotnet_graphql_example.Pages
             };
             try
             {
-                var response = await _client.SendQueryAsync<ProductResponse>(query);
+                var response = await _client.SendQueryAsync<AllProductResponse>(query);
                 Console.WriteLine(response.Data);
                 Products = response.Data;
             }catch (Exception e)

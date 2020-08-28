@@ -6,7 +6,7 @@
 
 @foreach (contentstack_dotnet_graphql_example.Models.Product product in Model.Products.all_product.items)
 {
-    <a asp-page="./Details" asp-route-productuid="@product.title">
+    <a asp-page="./Details" asp-route-productuid="@product.system.uid">
 
         <div class="col-md-4 col-sm-6 col-xs-12 women-dresses">
             <div class="women-grids wp1 animated wow slideInUp product-item" data-wow-delay=".5s">

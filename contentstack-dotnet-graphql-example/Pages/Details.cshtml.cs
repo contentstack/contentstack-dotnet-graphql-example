@@ -31,12 +31,11 @@ namespace contentstack_dotnet_graphql_example.Pages
         {
             var query = new GraphQLRequest
             {
-                Query = @"query Product($productid: String){
-                   all_product(locale:""en-us"", where: {
-                        title: $productid
-                    }) {
-                    total
-                    items{
+                Query = @"query Product($productid: String!){
+                    product(uid: $productid) {
+                      system {
+                         uid
+                      }
                       title
                       description
                       price
@@ -49,7 +48,6 @@ namespace contentstack_dotnet_graphql_example.Pages
                         }
                       }  
                     }
-                  }
                 }",
                 OperationName = "Product",
                 Variables = new
@@ -60,7 +58,6 @@ namespace contentstack_dotnet_graphql_example.Pages
             try
             {
                 var response = await _client.SendQueryAsync<ProductResponse>(query);
-                Console.WriteLine(response.Data);
                 Product = response.Data;
             }
             catch (Exception e)
