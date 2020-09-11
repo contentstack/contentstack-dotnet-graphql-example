@@ -4,7 +4,7 @@
     ViewData["Title"] = "Home page";
 }
 
-@foreach (contentstack_dotnet_graphql_example.Models.Product product in Model.Products.all_product.items)
+@foreach (ContentstackGraphQLExample.Models.Product product in Model.Products.all_product.items)
 {
     <a asp-page="./Details" asp-route-productuid="@product.system.uid">
 

@@ -1,5 +1,4 @@
-﻿using System;
-namespace contentstack_dotnet_graphql_example.Models
+﻿namespace ContentstackGraphQLExample.Models
 {
     public class Asset
     {
