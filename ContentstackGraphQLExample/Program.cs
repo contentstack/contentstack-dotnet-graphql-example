@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace contentstack_dotnet_graphql_example
+namespace ContentstackGraphQLExample
 {
     public class Program
     {

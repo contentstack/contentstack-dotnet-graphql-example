@@ -6,7 +6,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContentstackGraphQLExample", "ContentstackGraphQLExample\ContentstackGraphQLExample.csproj", "{C96A03C3-EDDE-4DA3-91B1-923BB85E6651}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContentstackGraphQLExample", "ContentstackGraphQLExample\ContentstackGraphQLExample.csproj", "{9CABDED3-CF98-4ACA-8878-C4B28B86C593}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +14,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C96A03C3-EDDE-4DA3-91B1-923BB85E6651}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C96A03C3-EDDE-4DA3-91B1-923BB85E6651}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C96A03C3-EDDE-4DA3-91B1-923BB85E6651}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C96A03C3-EDDE-4DA3-91B1-923BB85E6651}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CABDED3-CF98-4ACA-8878-C4B28B86C593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CABDED3-CF98-4ACA-8878-C4B28B86C593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CABDED3-CF98-4ACA-8878-C4B28B86C593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CABDED3-CF98-4ACA-8878-C4B28B86C593}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

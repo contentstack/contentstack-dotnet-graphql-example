@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "contentstack_dotnet_graphql_example": {
+    "ContentstackGraphQLExample": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
