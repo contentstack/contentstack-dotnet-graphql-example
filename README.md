@@ -12,18 +12,18 @@ We have created a sample product catalog app that is built using [GraphQL Client
 
 This document covers the steps to get this app up and running. Try out the steps mentioned in the guide before building large scale applications.
 
-![Homepage Screenshot](./product-catelog-image.png?raw=true "Homepage screenshot")
+![Homepage Screenshot](./Screenshots/product-catelog-image.png?raw=true "Homepage screenshot")
 
-## Perform the steps given below to get started.
+## Get started.
 
- - To get your app up and running quickly, we have created a sample .Net Product catalog for this project. You need to download it and change the configuration. So download the app using the command given below:
+ - To get your app up and running quickly, we have created a sample .NET Product Catalog for this project. You will need to download the code and change the configuration. Download the code using the command given below:
 ```
 $ git clone https://github.com/contentstack/contentstack-dotnet-graphql-example.git
 ```
   
- - Once you have downloaded the project, add your Contentstack API Key, Delivery Token, and Environment name to the project. (Learn how to find your Stack's [API Key](https://www.contentstack.com/docs/guide/stack#edit-a-stack) and [Delivery Token](https://www.contentstack.com/docs/guide/tokens#create-a-delivery-token). Read more about [Environments](https://www.contentstack.com/docs/guide/environments)).
+ - Once you have downloaded the project, add your Contentstack API Key, Delivery Token, and Environment name to the application settings. If you're new to Contentstack, follow these links to learn how to find your Stack's [API Key](https://www.contentstack.com/docs/guide/stack#edit-a-stack) and [Delivery Token](https://www.contentstack.com/docs/guide/tokens#create-a-delivery-token). Read more about [Environments](https://www.contentstack.com/docs/guide/environments).
 
- - Open ```contentstack-dotnet-graphql-example/appsettings.json``` and inject your credentials as shown below:
+ - Open ```ContentstackGraphQLExample/appsettings.json``` and inject your credentials as shown below:
 ```json
  {
   ....
@@ -42,7 +42,8 @@ $ git clone https://github.com/contentstack/contentstack-dotnet-graphql-example.
 
 # Tutorial
 
-We have created an in-depth tutorial on how you can create an example using the .Net framework. By following the steps given in the tutorial, you can  design a website similar to this demo.
+We've also created a guide that further explains this project. [Click here](https://www.contentstack.com/docs/developers/sample-apps/build-a-product-catalog-app-using-graphql-client-and-net/)
 
-[Create a liquid template example using Contentstack .Net framework](https://www.contentstack.com/docs/example-apps/build-an-example-app-using-contentstack-graphql-api-and-dotnet-graphql-client).
-
+## Additional Documentation
+ - [Visit the Contentstack Documentation](https://www.contentstack.com/docs/)
+ - [Visit the Contentstack .NET SDK Documentation](https://github.com/contentstack/contentstack-dotnet)

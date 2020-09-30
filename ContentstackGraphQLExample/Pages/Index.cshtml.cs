@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
-using contentstack_dotnet_graphql_example.Models;
+using ContentstackGraphQLExample.Models;
 using GraphQL;
 using GraphQL.Client.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
-namespace contentstack_dotnet_graphql_example.Pages
+namespace ContentstackGraphQLExample.Pages
 {
     public class IndexModel : PageModel
     {

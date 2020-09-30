@@ -13,7 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace contentstack_dotnet_graphql_example
+namespace ContentstackGraphQLExample
 {
     public class Startup
     {

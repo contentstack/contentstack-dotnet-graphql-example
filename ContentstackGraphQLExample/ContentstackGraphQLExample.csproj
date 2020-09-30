@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>contentstack_dotnet_graphql_example</RootNamespace>
+    <RootNamespace>ContentstackGraphQLExample</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
