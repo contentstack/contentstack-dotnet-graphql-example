@@ -55,8 +55,8 @@ namespace ContentstackGraphQLExample.Pages
                 OperationName = "Products",
 
                 Variables = new {
-                    skip = (CurrentPage - 1) * 6,
-                    limit = 6
+                    skip = (CurrentPage - 1) * PageSize,
+                    limit = PageSize
                 }
             };
 
