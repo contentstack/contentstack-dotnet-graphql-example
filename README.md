@@ -1,12 +1,6 @@
 [![Contentstack](https://www.contentstack.com/docs/static/images/contentstack.png)](https://www.contentstack.com/)
 
-# Build an example app using Contentstack GraphQL API and .Net GraphQL Client
-
-## About Contentstack:
-
-Contentstack is a headless CMS with an API-first approach that puts content at the centre. It is designed to simplify the process of publication by separating code from content.
-
-## About this project:
+## About this Example
 
 We have created a sample product catalog app that is built using [GraphQL Client](https://www.nuget.org/packages/GraphQL.Client/) SDK. The content of this app is powered by Contentstack GraphQL APIs,  and the app uses [GraphQL Client](https://github.com/github/graphql-client) on the client side to consume GraphQL APIs.
 
@@ -14,7 +8,11 @@ This document covers the steps to get this app up and running. Try out the steps
 
 ![Homepage Screenshot](./Screenshots/product-catelog-image.png?raw=true "Homepage screenshot")
 
-## Get started.
+## About Contentstack
+
+Contentstack is a headless CMS with an API-first approach that puts content at the centre. It is designed to simplify the process of publication by separating code from content.
+
+## Get Started
 
  - To get your app up and running quickly, we have created a sample .NET Product Catalog for this project. You will need to download the code and change the configuration. Download the code using the command given below:
 ```
@@ -36,7 +34,7 @@ $ git clone https://github.com/contentstack/contentstack-dotnet-graphql-example.
   ...
 }
 ```
-> Note: You should set Host name to [GraphQL URLs](https://www.contentstack.com/docs/developers/apis/graphql-content-delivery-api/#base-url) for Contentstack. For example 'graphql.contentstack.com'.
+> Note: You should set Host name to [GraphQL URLs](https://www.contentstack.com/docs/developers/apis/graphql-content-delivery-api/#base-url) for Contentstack. For example 'https://graphql.contentstack.com'.
 
  - Now that we have a working project ready, you can build and run it.
 

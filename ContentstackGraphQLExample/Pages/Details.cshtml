@@ -1,29 +1,26 @@
-﻿@page
+﻿@page "{uid}"
 @model DetailsModel
+
 @{
+    ViewData["Title"] = Model.Product.title;
 }
 
-    <div class="products">
-        <div class="container">
-            <div class="single-page">
-                <div class="single-page-row" id="detail-21">
-                    <div class="col-md-6 single-top-left vcenter">
-                        <div class="thumb-image detail_images flexslider">
-                            <ul class="slides">
-                                <li data-thumb="@Model.Product.product.featured_imageConnection.edges[0].node.url">
-                                    <img class="slides-image" src="@Model.Product.product.featured_imageConnection.edges[0].node.url" />
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+<div class="products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 single-top-left vcenter">
+                <ul class="slides">
+                    <li data-thumb="@Model.Product.featured_imageConnection.edges[0].node.url">
+                        <img class="slides-image" src="@Model.Product.featured_imageConnection.edges[0].node.url" alt="" />
+                    </li>
+                </ul>
+            </div>
 
-                    <div class="col-md-6 single-top-right vcenter">
-                        <h3 class="item_name">@Model.Product.product.title</h3>
-                        <p>@Model.Product.product.description</p>
-                        <div class="actual-price">﹩@Model.Product.product.price</div>
-
-                    </div>
-                </div>
+            <div class="col-md-6 single-top-right vcenter">
+                <h3>@Model.Product.title</h3>
+                <p>@Model.Product.description</p>
+                <p class="actual-price">$@Model.Product.price</p>
             </div>
         </div>
     </div>
+</div>

@@ -1,20 +1,30 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using GraphQL.Client.Abstractions;
 using GraphQL.Client.Http;
 using GraphQL.Client.Serializer.Newtonsoft;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace ContentstackGraphQLExample
 {
+    public class ContentstackOptions
+    {
+        public string Host { get; set; }
+        public string ApiKey { get; set; }
+        public string DeliveryToken { get; set; }
+        public string Environment { get; set; }
+
+        public string Endpoint
+        {
+            get
+            {
+                var protocol = Host?.StartsWith("https://") ?? false ? string.Empty : "https://";
+                return $"{protocol}{Host}/stacks/{ApiKey}?environment={Environment}";
+            }
+        }
+    }
+    
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -27,16 +37,13 @@ namespace ContentstackGraphQLExample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string Host = Configuration.GetValue<string>("ContentstackOptions:Host");
-            string ApiKey = Configuration.GetValue<string>("ContentstackOptions:ApiKey");
-            string DeliveryToken = Configuration.GetValue<string>("ContentstackOptions:DeliveryToken");
-            string Environment = Configuration.GetValue<string>("ContentstackOptions:Environment");
+            var options = new ContentstackOptions();
+            Configuration.GetSection("ContentstackOptions").Bind(options);
 
-            string endPoint = $"https://{Host}/stacks/{ApiKey}?environment={Environment}";
-            GraphQLHttpClient httpClient = new GraphQLHttpClient(endPoint, new NewtonsoftJsonSerializer());
-            httpClient.HttpClient.DefaultRequestHeaders.Add("access_token", DeliveryToken);
+            var httpClient = new GraphQLHttpClient(options.Endpoint, new NewtonsoftJsonSerializer());
+            httpClient.HttpClient.DefaultRequestHeaders.Add("access_token", options.DeliveryToken);
+
             services.AddSingleton(s => httpClient);
-
             services.AddRazorPages();
         }
 
@@ -56,9 +63,7 @@ namespace ContentstackGraphQLExample
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

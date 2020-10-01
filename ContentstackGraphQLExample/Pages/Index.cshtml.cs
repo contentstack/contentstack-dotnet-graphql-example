@@ -5,45 +5,43 @@ using GraphQL;
 using GraphQL.Client.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
 
 namespace ContentstackGraphQLExample.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-
         private readonly GraphQLHttpClient _client;
 
-        [BindProperty]
-        public AllProductResponse Products { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int CurrentPage { get; set; } = 1;
+        public int PageSize { get; set; } = 6;
+        public bool ShowPrevious => CurrentPage > 1;
+        public bool ShowNext => CurrentPage < TotalPages;
+        public int TotalPages => (int) Math.Ceiling(decimal.Divide(Products?.total ?? 0, PageSize));
 
-        public int CurrentPage = 1;
-        public IndexModel(ILogger<IndexModel> logger, GraphQLHttpClient client)
+        public ProductCollection Products { get; set; }
+
+        public IndexModel(GraphQLHttpClient client)
         {
-            _logger = logger;
             _client = client;
         }
 
-        public bool ShowPrevious => CurrentPage > 1;
-
-        public async Task OnGetAsync(int currentpage = 1)
+        public async Task OnGetAsync()
         {
-            CurrentPage = currentpage;
             var query = new GraphQLRequest
             {
-                Query = @"query Products($skip: Int ,$limit: Int){
-                  all_product(locale:""en-us"", skip:$skip, limit:$limit) {
+                Query = @"query Products($skip: Int, $limit: Int){
+                  all_product(locale: ""en-us"", skip: $skip, limit: $limit) {
                     total
-                    items{
+                    items {
                       system {
                          uid
                       }
                       title
                       description
                       price
-                      featured_imageConnection (limit: 10){
-                         edges{
+                      featured_imageConnection (limit: 10) {
+                         edges {
                             node {
                                 url
                                 filename
@@ -53,21 +51,17 @@ namespace ContentstackGraphQLExample.Pages
                     }
                   }
                 }",
+
                 OperationName = "Products",
+
                 Variables = new {
                     skip = (CurrentPage - 1) * 6,
                     limit = 6
                 }
             };
-            try
-            {
-                var response = await _client.SendQueryAsync<AllProductResponse>(query);
-                Console.WriteLine(response.Data);
-                Products = response.Data;
-            }catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+
+            var response = await _client.SendQueryAsync<AllProductResponse>(query);
+            Products = response.Data.all_product;
         }
     }
 }
