@@ -36,7 +36,7 @@ $ git clone https://github.com/contentstack/contentstack-dotnet-graphql-example.
   ...
 }
 ```
-> Note: You should set Host name to [GraphQL URLs](https://www.contentstack.com/docs/developers/apis/graphql-content-delivery-api/#base-url) for Contentstack. For example 'https://graphql.contentstack.com'.
+> Note: You should set the `Host` value to one of the base [GraphQL URLs](https://www.contentstack.com/docs/developers/apis/graphql-content-delivery-api/#base-url) for Contentstack. For example, the North American URL is https://graphql.contentstack.com and the European URL is https://graphql-eu.contentstack.com.
 
  - Now that we have a working project ready, you can build and run it.
 
