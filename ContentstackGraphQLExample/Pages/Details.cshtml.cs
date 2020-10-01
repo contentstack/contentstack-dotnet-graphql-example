@@ -1,37 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using ContentstackGraphQLExample.Models;
 using GraphQL;
 using GraphQL.Client.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
 
 namespace ContentstackGraphQLExample.Pages
 {
     public class DetailsModel : PageModel
     {
-        private readonly String _contentType = "product";
-        private readonly ILogger<DetailsModel> _logger;
-
         private readonly GraphQLHttpClient _client;
 
         [BindProperty]
-        public ProductResponse Product { get; set; }
+        public Product Product { get; set; }
 
-        public DetailsModel(ILogger<DetailsModel> logger, GraphQLHttpClient client)
+        [BindProperty(SupportsGet = true)]
+        public string Uid { get; set; }
+
+        public DetailsModel(GraphQLHttpClient client)
         {
-            _logger = logger;
             _client = client;
         }
 
-        public async Task OnGetAsync(string productuid)
+        public async Task OnGetAsync()
         {
             var query = new GraphQLRequest
             {
-                Query = @"query Product($productid: String!){
+                Query = @"query Product($productid: String!) {
                     product(uid: $productid) {
                       system {
                          uid
@@ -39,8 +34,8 @@ namespace ContentstackGraphQLExample.Pages
                       title
                       description
                       price
-                      featured_imageConnection (limit: 10){
-                         edges{
+                      featured_imageConnection (limit: 10) {
+                         edges {
                             node {
                                 url
                                 filename
@@ -49,21 +44,16 @@ namespace ContentstackGraphQLExample.Pages
                       }  
                     }
                 }",
+
                 OperationName = "Product",
                 Variables = new
                 {
-                    productid = productuid
+                    productid = Uid
                 }
             };
-            try
-            {
-                var response = await _client.SendQueryAsync<ProductResponse>(query);
-                Product = response.Data;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+
+            var response = await _client.SendQueryAsync<ProductResponse>(query);
+            Product = response.Data.product;
         }
     }
 }
